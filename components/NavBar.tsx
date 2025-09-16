@@ -44,8 +44,17 @@ export default function NavBar() {
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           {/* Other actions/links as needed */}
           <button className="badge" onClick={onToggleTheme} aria-label="Toggle theme">
-            {effective === "dark" ? "Light" : "Dark"}
-          </button>
+  {effective === "dark" ? (
+    <>
+      <span role="img" aria-label="sun">🌞</span>&nbsp;Light
+    </>
+  ) : (
+    <>
+      <span role="img" aria-label="moon">🌙</span>&nbsp;Dark
+    </>
+  )}
+</button>
+
         </div>
       </div>
     </nav>
