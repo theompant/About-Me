@@ -2,7 +2,9 @@
 
 <h1 align="center">Om Pant — Portfolio</h1>
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/your-github-id?v=4" width="120" style="border-radius:50%" alt="Om Pant"/>
+  <img src="https://avatars.githubusercontent.com/u/69330741?v=4" width="120" style="border-radius:50%" alt="Om Pant"/>
+
+  
 </p>
 
 ---
