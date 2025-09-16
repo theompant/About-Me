@@ -8,7 +8,8 @@
   --m3-radius-md: 16px;
   --m3-radius-sm: 12px;
   --m3-radius-xs: 8px;
-  color-scheme: light dark;
+  color-scheme: light dark; /* Enable native dark mode for form controls */
+
 
   /* Light theme base (overridden by dynamic theming at runtime) */
   --m3-primary: #6750a4;
@@ -32,14 +33,21 @@
   --m3-elevation-2: 0 2px 6px rgba(0,0,0,.1), 0 4px 12px rgba(0,0,0,.08);
   --m3-elevation-3: 0 4px 8px rgba(0,0,0,.12), 0 6px 20px rgba(0,0,0,.1);
 
-  /* Motion tokens */
+  /* Transitions */
   --m3-fast: 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
-  --m3-theme-dur: 260ms;
-  --m3-theme-ease: cubic-bezier(.2,0,.2,1);
 }
 
-/* Dark tokens */
 [data-theme="dark"] {
+
+  transition:
+    --m3-surface 260ms cubic-bezier(.2,0,.2,1),
+    --m3-on-surface 260ms cubic-bezier(.2,0,.2,1),
+    --m3-surface-container 260ms cubic-bezier(.2,0,.2,1),
+    --m3-surface-container-high 260ms cubic-bezier(.2,0,.2,1),
+    --m3-primary 260ms cubic-bezier(.2,0,.2,1),
+    --m3-secondary 260ms cubic-bezier(.2,0,.2,1),
+    --m3-tertiary 260ms cubic-bezier(.2,0,.2,1),
+    --m3-outline 260ms cubic-bezier(.2,0,.2,1);
   --m3-surface: #121316;
   --m3-on-surface: #e4e2e6;
 
@@ -56,34 +64,14 @@
   --m3-tertiary: #e5b8c7;
 }
 
-/* Smooth theme transitions (M3 expressive) */
-:root, [data-theme="dark"] {
-  transition:
-    --m3-surface var(--m3-theme-dur) var(--m3-theme-ease),
-    --m3-on-surface var(--m3-theme-dur) var(--m3-theme-ease),
-    --m3-surface-container var(--m3-theme-dur) var(--m3-theme-ease),
-    --m3-surface-container-high var(--m3-theme-dur) var(--m3-theme-ease),
-    --m3-primary var(--m3-theme-dur) var(--m3-theme-ease),
-    --m3-secondary var(--m3-theme-dur) var(--m3-theme-ease),
-    --m3-tertiary var(--m3-theme-dur) var(--m3-theme-ease),
-    --m3-outline var(--m3-theme-dur) var(--m3-theme-ease);
-}
-
-/* Direct color animations where needed */
-html, body {
-  height: 100%;
-  background: var(--m3-surface) !important;
-  color: var(--m3-on-surface) !important;
-  transition:
-    background-color var(--m3-theme-dur) var(--m3-theme-ease),
-    color var(--m3-theme-dur) var(--m3-theme-ease);
-}
-
 /* ============ Resets ============ */
 * { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
 
 body {
   font-family: 'Google Sans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  background: var(--m3-surface);
+  color: var(--m3-on-surface);
   line-height: 1.6;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -101,11 +89,7 @@ a { color: inherit; text-decoration: none; }
   box-shadow: var(--m3-elevation-1);
   padding: 24px;
   margin-bottom: 20px;
-  transition:
-    transform var(--m3-fast),
-    box-shadow var(--m3-fast),
-    background-color 300ms var(--m3-theme-ease),
-    border-color 300ms var(--m3-theme-ease);
+  transition: transform var(--m3-fast), box-shadow var(--m3-fast), background var(--m3-fast), border-color var(--m3-fast);
   border: 1px solid color-mix(in srgb, var(--m3-outline) 12%, transparent);
 }
 .card:hover { transform: translateY(-2px); box-shadow: var(--m3-elevation-2); }
@@ -182,17 +166,22 @@ li { margin-bottom: 4px; }
   z-index: 100;
   isolation: isolate;
   background:
-    radial-gradient(140% 120% at 50% -40%, color-mix(in srgb, #ffffff 8%, transparent) 0%, transparent 60%),
+    radial-gradient(120% 100% at 10% -10%, color-mix(in srgb, #ffffff 10%, transparent) 0%, transparent 50%),
+    radial-gradient(120% 140% at 90% 0%, color-mix(in srgb, #ffffff 6%, transparent) 0%, transparent 60%),
     linear-gradient(180deg,
-      color-mix(in srgb, var(--m3-surface-container-high) 86%, transparent),
-      color-mix(in srgb, var(--m3-surface-container) 64%, transparent));
+      color-mix(in srgb, var(--m3-surface-container-high) 75%, transparent),
+      color-mix(in srgb, var(--m3-surface-container) 55%, transparent));
   backdrop-filter: blur(24px) saturate(135%);
   -webkit-backdrop-filter: blur(24px) saturate(135%);
   border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 28%, transparent);
   box-shadow:
     inset 0 1px 0 color-mix(in srgb, #ffffff 16%, transparent),
     0 10px 32px color-mix(in srgb, var(--m3-outline) 22%, transparent);
-  transition: background-color 320ms var(--m3-theme-ease), border-color 320ms var(--m3-theme-ease), box-shadow 320ms var(--m3-theme-ease);
+    background:
+    radial-gradient(140% 120% at 50% -40%, color-mix(in srgb, #ffffff 8%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--m3-surface-container-high) 86%, transparent),
+      color-mix(in srgb, var(--m3-surface-container) 64%, transparent));
 }
 [data-theme="dark"] .liquid-nav {
   background:
@@ -200,17 +189,13 @@ li { margin-bottom: 4px; }
     linear-gradient(180deg,
       color-mix(in srgb, var(--m3-surface-container-high) 88%, transparent),
       color-mix(in srgb, var(--m3-surface-container) 70%, transparent));
-  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 36%, transparent);
-  box-shadow:
-    inset 0 1px 0 color-mix(in srgb, #ffffff 10%, transparent),
-    0 14px 36px color-mix(in srgb, var(--m3-outline) 26%, transparent);
 }
+/* sheen and microtexture layers */
 .liquid-nav::before {
   content: "";
   position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(120deg, color-mix(in srgb, #ffffff 7%, transparent) 0%, transparent 30%, transparent 70%, color-mix(in srgb, #ffffff 5%, transparent) 100%);
   opacity: 0.35; mix-blend-mode: soft-light;
-  transition: opacity 300ms var(--m3-theme-ease);
 }
 .liquid-nav::after {
   content: "";
@@ -220,15 +205,7 @@ li { margin-bottom: 4px; }
     repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 1px, transparent 1px 2px);
   mix-blend-mode: overlay;
 }
-
-/* Hero */
-.liquid-hero {
-  background:
-    radial-gradient(160% 140% at 0% -20%, color-mix(in srgb, #fff 6%, transparent), transparent 60%),
-    linear-gradient(180deg, color-mix(in srgb, var(--m3-surface) 92%, transparent), transparent),
-    linear-gradient(0deg, transparent 0%, color-mix(in srgb, var(--m3-surface) 6%, transparent) 100%);
-  transition: background-color 320ms var(--m3-theme-ease);
-}
+.liquid-nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
 
 /* Sheen utility */
 .sheen { position: relative; overflow: hidden; }
@@ -239,19 +216,104 @@ li { margin-bottom: 4px; }
 }
 .sheen:hover::after { transform: translateX(120%); }
 
-/* Meta row: label/location on left, dates on right */
-.meta { display: flex; align-items: center; gap: 10px; }
-.meta .spacer { flex: 1 1 auto; }
-.meta .dates { opacity: 0.85; font-size: 0.95rem; white-space: nowrap; }
+/* Optional hero surface to echo glass */
+.liquid-hero {
+  background:
+    radial-gradient(160% 140% at 0% -20%, color-mix(in srgb, #fff 6%, transparent), transparent 60%),
+    linear-gradient(180deg, color-mix(in srgb, var(--m3-surface) 92%, transparent), transparent),
+    linear-gradient(0deg, transparent 0%, color-mix(in srgb, var(--m3-surface) 6%, transparent) 100%);
+}
 
-/* Theme cross-fade overlay */
+/* ==== LOCKED Liquid Glass Header (scoped) ==== */
+.liquid-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  isolation: isolate;
+  background:
+    radial-gradient(120% 100% at 10% -10%, color-mix(in srgb, #ffffff 10%, transparent) 0%, transparent 50%),
+    radial-gradient(120% 140% at 90% 0%, color-mix(in srgb, #ffffff 6%, transparent) 0%, transparent 60%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--m3-surface-container-high) 75%, transparent),
+      color-mix(in srgb, var(--m3-surface-container) 55%, transparent));
+  backdrop-filter: blur(24px) saturate(135%);
+  -webkit-backdrop-filter: blur(24px) saturate(135%);
+  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 28%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 16%, transparent),
+    0 10px 32px color-mix(in srgb, var(--m3-outline) 22%, transparent);
+}
+[data-theme="dark"] .liquid-nav {
+  background:
+    radial-gradient(120% 100% at 12% -12%, color-mix(in srgb, #ffffff 8%, transparent) 0%, transparent 50%),
+    radial-gradient(120% 140% at 88% 0%, color-mix(in srgb, #ffffff 5%, transparent) 0%, transparent 62%),
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--m3-surface-container-high) 82%, transparent),
+      color-mix(in srgb, var(--m3-surface-container) 62%, transparent));
+  border-bottom: 1px solid color-mix(in srgb, var(--m3-outline) 36%, transparent);
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #ffffff 10%, transparent),
+    0 14px 36px color-mix(in srgb, var(--m3-outline) 26%, transparent);
+}
+.liquid-nav::before {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(120deg, color-mix(in srgb, #ffffff 7%, transparent) 0%, transparent 30%, transparent 70%, color-mix(in srgb, #ffffff 5%, transparent) 100%);
+  opacity: 0.35; mix-blend-mode: soft-light;
+}
+.liquid-nav::after {
+  content: "";
+  position: absolute; inset: 0; pointer-events: none; opacity: 0.06;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 1px, transparent 1px 2px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,.04) 0 1px, transparent 1px 2px);
+  mix-blend-mode: overlay;
+}
+.liquid-nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
+
+/* Sheen utility only for buttons */
+.sheen { position: relative; overflow: hidden; }
+.sheen::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(100deg, transparent 40%, color-mix(in srgb,#fff 18%, transparent) 50%, transparent 60%);
+  transform: translateX(-120%); transition: transform 1.1s cubic-bezier(.2,.8,.2,1);
+}
+.sheen:hover::after { transform: translateX(120%); }
+
+
+/* Ensure body always follows theme tokens */
+html, body {
+  background: var(--m3-surface) !important;
+  color: var(--m3-on-surface) !important;
+}
+
+/* Meta row: label/location on left, dates on right */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.meta .spacer {
+  flex: 1 1 auto;
+}
+.meta .dates {
+  opacity: 0.85;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
 .theme-fade {
   position: fixed;
   inset: 0;
   pointer-events: none;
   background: var(--m3-surface);
-  opacity: 0;
-  transition: opacity 200ms var(--m3-theme-ease);
+  opacity: 0.0;
+  transition: opacity 200ms cubic-bezier(.2,.0,.2,1);
   z-index: 9999;
 }
-.theme-fade.active { opacity: 0.18; }
+.theme-fade.active {
+  opacity: 0.18; /* brief veil on flip */
+}
+
+
+
+
