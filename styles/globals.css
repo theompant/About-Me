@@ -277,4 +277,20 @@ html, body {
   color: var(--m3-on-surface) !important;
 }
 
+/* Meta row: label/location on left, dates on right */
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.meta .spacer {
+  flex: 1 1 auto;
+}
+.meta .dates {
+  opacity: 0.85;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+
 
