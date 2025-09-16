@@ -75,21 +75,24 @@ Currently training at QSpiders and building my skills in automation, API, and we
 
 ## 📌 Contact
 
-- ✉️ Email: [ompant624@gmail.com](mailto:ompant624@gmail.com)
-- 🌐 [LinkedIn](https://www.linkedin.com/in/theompant)
-- 💻 [Portfolio Site](YOUR_PORTFOLIO_LINK)
+<p>
+  <a href="mailto:ompant624@gmail.com" style="text-decoration:none;">
+    <img alt="Gmail" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" height="18" />
+    &nbsp;ompant624@gmail.com
+  </a>
+</p>
 
-<p align="center">
-  <a href="mailto:ompant624@gmail.com" title="Email">
-    <img alt="Gmail" height="32" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" />
+<p>
+  <a href="https://www.linkedin.com/in/theompant" target="_blank" rel="noopener" style="text-decoration:none;">
+    <img alt="LinkedIn" src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" height="18" />
+    &nbsp;LinkedIn
   </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://www.linkedin.com/in/theompant" title="LinkedIn">
-    <img alt="LinkedIn" height="32" src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" />
-  </a>
-  &nbsp;&nbsp;&nbsp;
-  <a href="https://vercel.com" title="Vercel">
-    <img alt="Vercel" height="28" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_black.svg" />
+</p>
+
+<p>
+  <a href="https://YOUR_PORTFOLIO_LINK" target="_blank" rel="noopener" style="text-decoration:none;">
+    <img alt="Vercel" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_black.svg" height="16" />
+    &nbsp;Portfolio Site
   </a>
 </p>
 
