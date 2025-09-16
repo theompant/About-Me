@@ -1,0 +1,7 @@
+{
+  "tools": ["JIRA", "Postman", "Oracle SQL Developer", "Selenium WebDriver", "FireFlink"],
+  "languages": ["Java (basic)", "SQL (Oracle)", "HTML", "CSS", "JavaScript"],
+  "platforms": ["VS Code", "Eclipse IDE"],
+  "coursework": ["OOP", "Operating Systems", "Computer Networks"],
+  "soft": ["Teamwork", "Communication", "Rapport Building", "People Management"]
+}

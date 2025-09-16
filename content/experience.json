@@ -1,0 +1,31 @@
+[
+  {
+    "role": "SDET Trainee",
+    "company": "JSpiders (QSpiders)",
+    "location": "Noida",
+    "dates": "July 2025 – Present",
+    "bullets": [
+      "Manual testing (SDLC/STLC), test plans, test cases, defect docs, SQL data validation.",
+      "NLP-driven FireFlink scripts; validated StarQuik E2E; robust XPath for dynamic toasts; isolated failed tests to accelerate regression.",
+      "Growing advanced Selenium WebDriver automation skills."
+    ]
+  },
+  {
+    "role": "Project Developer Trainee",
+    "company": "Qmansys Infosolutions",
+    "location": "Remote",
+    "dates": "July 2024 – Oct 2024",
+    "bullets": [
+      "Built real-time air quality monitoring with automated fan/warn lights and SMS/web alerts."
+    ]
+  },
+  {
+    "role": "Industrial Trainee – Software Development",
+    "company": "IIIS, Delhi",
+    "location": "Delhi",
+    "dates": "Apr 2024 – Jun 2024",
+    "bullets": [
+      "Elicited FRs/NFRs for University Examination System; requirements engineering and analysis."
+    ]
+  }
+]
