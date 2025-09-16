@@ -9,11 +9,9 @@ import education from "@/content/education.json";
 import experience from "@/content/experience.json";
 import certs from "@/content/certifications.json";
 import NavBar from "@/components/NavBar";
+import Link from "next/link";
 
-// REMOVE: import Link from "next/link"; // You do NOT need Link for external URLs
-
-// ...extractDominantColor function and SEED_STORAGE_KEY stay unchanged...
-
+/* Extract a coarse dominant color from an image element */
 function extractDominantColor(img: HTMLImageElement, step = 10): string {
   try {
     const canvas = document.createElement("canvas");
@@ -25,7 +23,7 @@ function extractDominantColor(img: HTMLImageElement, step = 10): string {
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     const { data } = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let r = 0, g = 0, b = 0, count = 0;
-    const stride = Math.max(1, Math.floor((data.length / 4) / 5000)); // cap ~5k samples
+    const stride = Math.max(1, Math.floor((data.length / 4) / 5000));
     for (let i = 0; i < data.length; i += 4 * stride) {
       r += data[i]; g += data[i + 1]; b += data[i + 2]; count++;
     }
@@ -42,6 +40,7 @@ const SEED_STORAGE_KEY = "m3_seed_v1";
 export default function Home() {
   const initialSeed =
     (typeof window !== "undefined" && localStorage.getItem(SEED_STORAGE_KEY)) || "#6750a4";
+
   const [seed, setSeed] = useState<string>(initialSeed);
   const seededOnce = useRef(false);
   const imgRef = useRef<HTMLImageElement | null>(null);
@@ -90,7 +89,6 @@ export default function Home() {
             borderRadius: 16,
           }}
         >
-          {/* Avatar photo seeds Material You */}
           <img
             ref={imgRef}
             src="/photo.jpg"
@@ -106,9 +104,8 @@ export default function Home() {
             <h1>{profile.name}</h1>
             <p style={{ fontSize: "1.1rem", marginBottom: "12px" }}>{profile.title}</p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              {/* Changed: Use <a> for external links */}
-              <a href={profile.links.github} className="badge" target="_blank" rel="noopener">GitHub</a>
-              <a href={profile.links.linkedin} className="badge" target="_blank" rel="noopener">LinkedIn</a>
+              <Link href={profile.links.github} className="badge" target="_blank" rel="noopener">GitHub</Link>
+              <Link href={profile.links.linkedin} className="badge" target="_blank" rel="noopener">LinkedIn</Link>
               <span className="badge">📍 {profile.location}</span>
               <a href={`mailto:${profile.email}`} className="badge">✉️ {profile.email}</a>
               <a href={`tel:${profile.phone}`} className="badge">📱 {profile.phone}</a>
@@ -125,33 +122,44 @@ export default function Home() {
         {/* Skills Section */}
         <section className="card fade-in">
           <h2>Skills & Technologies</h2>
+
           <div style={{ marginBottom: "16px" }}>
             <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Tools & Frameworks</h3>
-            <div>{skills.tools.map((t: string) => <span key={t} className="badge">{t}</span>)}</div>
+            <div>{skills.tools.map((t) => <span key={t} className="badge">{t}</span>)}</div>
           </div>
+
           <div style={{ marginBottom: "16px" }}>
             <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Programming Languages</h3>
-            <div>{skills.languages.map((t: string) => <span key={t} className="badge">{t}</span>)}</div>
+            <div>{skills.languages.map((t) => <span key={t} className="badge">{t}</span>)}</div>
           </div>
+
           <div style={{ marginBottom: "16px" }}>
             <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Development Platforms</h3>
-            <div>{skills.platforms.map((t: string) => <span key={t} className="badge">{t}</span>)}</div>
+            <div>{skills.platforms.map((t) => <span key={t} className="badge">{t}</span>)}</div>
           </div>
+
           <div>
             <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Core Competencies</h3>
-            <div>{skills.coursework.concat(skills.soft).map((t: string) => <span key={t} className="badge">{t}</span>)}</div>
+            <div>{skills.coursework.concat(skills.soft).map((t) => <span key={t} className="badge">{t}</span>)}</div>
           </div>
         </section>
 
         {/* Experience Section */}
         <section className="card fade-in">
           <h2>Professional Experience</h2>
-          {experience.map((e: any, index: number) => (
+          {experience.map((e, index) => (
             <div key={e.role + e.company} style={{ marginBottom: index < experience.length - 1 ? "24px" : 0 }}>
               <h3>{e.role}</h3>
               <p style={{ fontWeight: 600, color: "var(--m3-primary)", marginBottom: "4px" }}>{e.company}</p>
-              <p style={{ opacity: 0.8, marginBottom: "12px", fontSize: "0.95rem" }}>📍 {e.location} • 📅 {e.dates}</p>
-              <ul>{e.bullets.map((b: string, i: number) => <li key={i}>{b}</li>)}</ul>
+
+              {/* meta row: location left, dates right */}
+              <p className="meta" style={{ marginBottom: "12px" }}>
+                <span>📍 {e.location}</span>
+                <span className="spacer" />
+                <span className="dates">📅 {e.dates}</span>
+              </p>
+
+              <ul>{e.bullets.map((b, i) => <li key={i}>{b}</li>)}</ul>
             </div>
           ))}
         </section>
@@ -159,12 +167,19 @@ export default function Home() {
         {/* Projects Section */}
         <section className="card fade-in">
           <h2>Featured Projects</h2>
-          {projects.map((p: any, index: number) => (
+          {projects.map((p, index) => (
             <div key={p.name} style={{ marginBottom: index < projects.length - 1 ? "24px" : 0 }}>
               <h3>{p.name}</h3>
+              {/* If you add dates to your project JSON, switch to meta row:
+              <p className="meta" style={{ marginBottom: "8px" }}>
+                <span>{p.summary}</span>
+                <span className="spacer" />
+                <span className="dates">📅 {p.dates}</span>
+              </p>
+              */}
               <p style={{ marginBottom: "12px" }}>{p.summary}</p>
-              <div style={{ marginBottom: "12px" }}>{p.stack.map((s: string) => <span key={s} className="badge">{s}</span>)}</div>
-              <ul>{p.highlights.map((h: string, i: number) => <li key={i}>{h}</li>)}</ul>
+              <div style={{ marginBottom: "12px" }}>{p.stack.map((s) => <span key={s} className="badge">{s}</span>)}</div>
+              <ul>{p.highlights.map((h, i) => <li key={i}>{h}</li>)}</ul>
             </div>
           ))}
         </section>
@@ -173,23 +188,29 @@ export default function Home() {
         <div style={{ display: "grid", gap: "20px", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))" }}>
           <section className="card fade-in">
             <h2>Education</h2>
-            {education.map((ed: any, index: number) => (
+            {education.map((ed, index) => (
               <div key={ed.school} style={{ marginBottom: index < education.length - 1 ? "12px" : 0 }}>
                 <h3 style={{ fontSize: "1.1rem" }}>{ed.degree}</h3>
                 <p style={{ fontWeight: 500, color: "var(--m3-primary)" }}>{ed.school}</p>
-                <p style={{ opacity: 0.8, fontSize: "0.95rem" }}>📍 {ed.location} • 📅 {ed.dates}</p>
+
+                {/* meta row: location left, dates right */}
+                <p className="meta" style={{ marginBottom: "8px" }}>
+                  <span>📍 {ed.location}</span>
+                  <span className="spacer" />
+                  <span className="dates">📅 {ed.dates}</span>
+                </p>
               </div>
             ))}
           </section>
 
           <section className="card fade-in">
             <h2>Certifications</h2>
-            <ul>{certs.map((c: string, i: number) => <li key={i} style={{ marginBottom: "8px" }}>{c}</li>)}</ul>
+            <ul>{certs.map((c, i) => <li key={i} style={{ marginBottom: "8px" }}>{c}</li>)}</ul>
           </section>
         </div>
 
         <footer style={{ margin: "40px 0 20px", textAlign: "center", opacity: 0.7, fontSize: "0.9rem" }}>
-          {/* Footer content if needed */}
+          {/* optional footer */}
         </footer>
       </main>
     </>
