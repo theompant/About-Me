@@ -1,5 +1,13 @@
 // lib/dynamic-color.ts
 import tinycolor from "tinycolor2";
+// Add this at the top, after imports
+interface HslColor {
+  h: number;
+  s: number;
+  l: number;
+  a?: number;
+}
+
 
 
 export interface ThemeColors {
