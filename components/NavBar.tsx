@@ -46,7 +46,18 @@ export default function NavBar() {
   return (
     <nav className="liquid-nav">
       <div className="liquid-nav-inner">
-        <Link href="/" className="sheen" style={{ fontWeight: 700 }}>Om Pant</Link>
+        <Link
+  href="/"
+  className="sheen"
+  style={{
+    fontWeight: 800,
+    fontSize: "clamp(1.05rem, 1.5vw, 1.2rem)",
+    letterSpacing: "-0.01em"
+  }}
+>
+  theompant™
+</Link>
+
 
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
           {/* Other actions/links as needed */}
