@@ -91,6 +91,11 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 20px;
   transition: transform var(--m3-fast), box-shadow var(--m3-fast), background var(--m3-fast), border-color var(--m3-fast);
   border: 1px solid color-mix(in srgb, var(--m3-outline) 12%, transparent);
+  transition:
+    transform var(--m3-fast),
+    box-shadow var(--m3-fast),
+    background-color 300ms cubic-bezier(.2,0,.2,1),
+    border-color 300ms cubic-bezier(.2,0,.2,1);
 }
 .card:hover { transform: translateY(-2px); box-shadow: var(--m3-elevation-2); }
 
@@ -182,6 +187,10 @@ li { margin-bottom: 4px; }
     linear-gradient(180deg,
       color-mix(in srgb, var(--m3-surface-container-high) 86%, transparent),
       color-mix(in srgb, var(--m3-surface-container) 64%, transparent));
+      transition:
+    background-color 300ms cubic-bezier(.2,0,.2,1),
+    box-shadow 300ms cubic-bezier(.2,0,.2,1),
+    border-color 300ms cubic-bezier(.2,0,.2,1);
 }
 [data-theme="dark"] .liquid-nav {
   background:
@@ -283,9 +292,14 @@ li { margin-bottom: 4px; }
 
 /* Ensure body always follows theme tokens */
 html, body {
+  height: 100%;
   background: var(--m3-surface) !important;
   color: var(--m3-on-surface) !important;
+  transition:
+    background-color 260ms cubic-bezier(.2,0,.2,1),
+    color 260ms cubic-bezier(.2,0,.2,1);
 }
+
 
 /* Meta row: label/location on left, dates on right */
 .meta {
