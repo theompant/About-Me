@@ -75,25 +75,17 @@ Currently training at QSpiders and building my skills in automation, API, and we
 
 ## 📌 Contact
 
-<p>
-  <a href="mailto:ompant624@gmail.com" style="text-decoration:none;">
-    <img alt="Gmail" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" height="18" />
-    &nbsp;ompant624@gmail.com
+<p align="center">
+  <a href="mailto:ompant624@gmail.com" style="text-decoration:none;margin-right:14px;">
+    <img alt="Gmail" src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.svg" height="20" />
+  </a>
+  <a href="https://www.linkedin.com/in/theompant" style="text-decoration:none;margin-right:14px;">
+    <img alt="LinkedIn" src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" height="20" />
+  </a>
+  <a href="https://YOUR_PORTFOLIO_LINK" style="text-decoration:none;">
+    <img alt="Vercel" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_black.svg" height="18" />
   </a>
 </p>
 
-<p>
-  <a href="https://www.linkedin.com/in/theompant" target="_blank" rel="noopener" style="text-decoration:none;">
-    <img alt="LinkedIn" src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" height="18" />
-    &nbsp;LinkedIn
-  </a>
-</p>
-
-<p>
-  <a href="https://YOUR_PORTFOLIO_LINK" target="_blank" rel="noopener" style="text-decoration:none;">
-    <img alt="Vercel" src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_black.svg" height="16" />
-    &nbsp;Portfolio Site
-  </a>
-</p>
 
 <p align="center"><em>“Passionate about building quality, automation-driven software.”</em></p>
