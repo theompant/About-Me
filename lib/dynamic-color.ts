@@ -1,5 +1,6 @@
 // lib/dynamic-color.ts
-import tinycolor, { type HslColor } from "tinycolor2";
+import tinycolor from "tinycolor2";
+
 
 export interface ThemeColors {
   primary: string;
