@@ -78,7 +78,7 @@ Currently training at QSpiders and building my skills in automation, API, and we
 
 ## 📌 Contact
 
-- ✉️ Email: your.email@example.com
+- ✉️ Email: ompant624@gmail.com
 - 🌐 [LinkedIn](https://www.linkedin.com/in/theompant)
 - 💻 [Portfolio Site](YOUR_PORTFOLIO_LINK)
 
