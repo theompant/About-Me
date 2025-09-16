@@ -327,6 +327,35 @@ html, body {
 .theme-fade.active {
   opacity: 0.18; /* brief veil on flip */
 }
+/* Theme ripple reveal from toggle */
+.theme-ripple {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10000;
+  overflow: hidden;
+}
+
+.theme-ripple > span {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  background: var(--m3-surface);
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0.16; /* brief veil */
+  will-change: transform, opacity, background-color;
+  transition:
+    transform 520ms cubic-bezier(.2,.0,.2,1),
+    opacity 520ms cubic-bezier(.2,.0,.2,1),
+    background-color 260ms cubic-bezier(.2,.0,.2,1);
+}
+
+.theme-ripple > span.expand {
+  transform: translate(var(--x, 0), var(--y, 0)) scale(var(--scale, 1));
+  opacity: 0;
+}
+
 
 
 

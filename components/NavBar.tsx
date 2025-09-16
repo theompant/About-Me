@@ -1,55 +1,51 @@
 "use client";
+
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function NavBar() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => { setMounted(true); }, []);
-  if (!mounted) return null;
+  useEffect(() => setMounted(true), []);
+
+  const onToggleTheme = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // 1) Emit ripple origin at toggle center (viewport coords)
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    window.dispatchEvent(new CustomEvent("theme-ripple", { detail: { x, y } } as any));
+
+    // 2) Flip theme
+    const effective = (theme === "system" ? systemTheme : theme) || "light";
+    setTheme(effective === "dark" ? "light" : "dark");
+  };
+
+  if (!mounted) {
+    // Avoid hydration mismatch for theme text
+    return (
+      <nav className="liquid-nav">
+        <div className="liquid-nav-inner">
+          <Link href="/" className="sheen" style={{ fontWeight: 700 }}>Om Pant</Link>
+          <button className="badge" disabled>Theme</button>
+        </div>
+      </nav>
+    );
+  }
+
+  const effective = (theme === "system" ? systemTheme : theme) || "light";
 
   return (
     <nav className="liquid-nav">
-      <div className="container liquid-nav-inner">
-        <Link
-          href="/"
-          style={{
-            fontWeight: 700,
-            fontSize: "1.2rem",
-            color: "var(--m3-primary)",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-          }}
-        >
-          <img
-            src="/photo.jpg"
-            alt="Om Pant"
-            width={32}
-            height={32}
-            style={{ borderRadius: 8, objectFit: "cover", flexShrink: 0 }}
-          />
-          Om Pant
-        </Link>
+      <div className="liquid-nav-inner">
+        <Link href="/" className="sheen" style={{ fontWeight: 700 }}>Om Pant</Link>
 
-        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-          <button
-            className="button sheen"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            style={{
-              background: "var(--m3-surface-container)",
-              color: "var(--m3-on-surface)",
-              fontSize: "12px",
-            }}
-          >
-            {theme === "dark" ? "🌞" : "🌙"} {theme === "dark" ? "Light" : "Dark"}
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          {/* Other actions/links as needed */}
+          <button className="badge" onClick={onToggleTheme} aria-label="Toggle theme">
+            {effective === "dark" ? "Light" : "Dark"}
           </button>
-
-          <a className="button sheen" href="mailto:ompant624@gmail.com" style={{ fontSize: "12px" }}>
-            ✉️ Contact
-          </a>
         </div>
       </div>
     </nav>

@@ -1,7 +1,10 @@
 // app/layout.tsx
 import "../styles/globals.css";
+ // adjust path if needed
 import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
+import ThemeFade from "@/components/ThemeFade";   // optional brief veil
+import ThemeRipple from "@/components/ThemeRipple"; // ripple from toggle
 
 export const metadata: Metadata = {
   title: "Om Pant — Portfolio",
@@ -30,6 +33,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem enableColorScheme>
           {children}
+          {/* Theme transition layers */}
+          <ThemeFade />
+          <ThemeRipple />
         </ThemeProvider>
       </body>
     </html>
