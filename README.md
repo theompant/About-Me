@@ -67,10 +67,12 @@ Currently training at QSpiders and building my skills in automation, API, and we
 
 ## 📈 GitHub Stats
 
-![GitHub Repo stars](https://img.shields.io/github/stars/your-github-username/your-repo-name?style=social)
-![GitHub followers](https://img.shields.io/github/followers/your-github-username?style=social)
+<!-- Replace REPO_NAME below with the actual repo you want to track stars for -->
+![GitHub Repo stars](https://img.shields.io/github/stars/theompant/REPO_NAME?style=social)
+![GitHub followers](https://img.shields.io/github/followers/theompant?style=social)
 
-![OmPant's GitHub Stats](https://github-readme-stats.vercel.app/api?username=your-github-username&show_icons=true&theme=radical)
+![Om Pant's GitHub Stats](https://github-readme-stats.vercel.app/api?username=theompant&show_icons=true&theme=radical)
+
 
 <!-- Add more dynamic badges/cards using shields.io and readme-stats services -->
 
