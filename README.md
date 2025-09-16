@@ -70,7 +70,7 @@ Currently training at QSpiders and building my skills in automation, API, and we
 ![Stars](https://img.shields.io/github/stars/theompant/about-me?style=social)
 ![Followers](https://img.shields.io/github/followers/theompant?style=social)
 
-**theompant’s GitHub Stats**
+<!-- **theompant’s GitHub Stats** -->
 
 ![theompant's GitHub Stats](https://github-readme-stats.vercel.app/api?username=theompant&show_icons=true&theme=radical)
 
