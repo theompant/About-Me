@@ -343,7 +343,7 @@ html, body {
   border-radius: 9999px;
   background: var(--m3-surface);
   transform: translate(-50%, -50%) scale(0);
-  opacity: 0.22; /* brief veil */
+  opacity: 0.16; /* brief veil */
   will-change: transform, opacity, background-color;
   transition:
     transform 520ms cubic-bezier(.2,.0,.2,1),
