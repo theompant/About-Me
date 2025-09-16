@@ -104,8 +104,9 @@ export default function Home() {
             <h1>{profile.name}</h1>
             <p style={{ fontSize: "1.1rem", marginBottom: "12px" }}>{profile.title}</p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <Link href={profile.links.github} className="badge" target="_blank" rel="noopener">GitHub</Link>
-              <Link href={profile.links.linkedin} className="badge" target="_blank" rel="noopener">LinkedIn</Link>
+              <a href={profile.links.github as string} className="badge" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href={profile.links.linkedin as string} className="badge" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+
               <span className="badge">📍 {profile.location}</span>
               <a href={`mailto:${profile.email}`} className="badge">✉️ {profile.email}</a>
               <a href={`tel:${profile.phone}`} className="badge">📱 {profile.phone}</a>
