@@ -1,4 +1,4 @@
 node_modules
 .next
-temp
-.gitignore
+.env
+.DS_Store
