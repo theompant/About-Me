@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Resource Allocation Using Blockchain",
+    "stack": ["Solidity", "Polygon (Amoy)", "Hardhat", "IPFS"],
+    "summary": "Smart contracts (Campaign, CampaignFactory) with donor-majority approvals, safeguarded fund flows, and IPFS-backed immutable metadata.",
+    "highlights": [
+      "Deployed on Polygon Amoy with Hardhat; enforced donor-majority approvals.",
+      "Integrated IPFS for content-addressed media and metadata.",
+      "Used PoS finality with SHA-256 and Keccak-256 hashing for integrity."
+    ]
+  },
+  {
+    "name": "Autonomous Line Follower Robot",
+    "stack": ["Arduino Uno", "IR Sensors", "L298N", "PWM"],
+    "summary": "2WD autonomous robot with optimized PWM (7812.5 Hz) for stable low-speed control and precise line tracking.",
+    "highlights": [
+      "Calibrated IR sensing for stable following.",
+      "Optimized PWM frequency for smooth motion."
+    ]
+  }
+]
