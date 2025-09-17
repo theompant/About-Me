@@ -2,6 +2,7 @@
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { applyTheme, seedDynamicTheme } from "@/lib/dynamic-color";
+import { SkillsGrid } from "../components/SkillsGrid";
 import profile from "@/content/profile.json";
 import skills from "@/content/skills.json";
 import projects from "@/content/projects.json";
@@ -121,29 +122,72 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section className="card fade-in">
-          <h2>Skills & Technologies</h2>
+      
+<section className="card fade-in">
+  <h2>Skills & Technologies</h2>
 
-          <div style={{ marginBottom: "16px" }}>
-            <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Tools & Frameworks</h3>
-            <div>{skills.tools.map((t) => <span key={t} className="badge">{t}</span>)}</div>
-          </div>
+  {/* Glass grid container */}
+  <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
 
-          <div style={{ marginBottom: "16px" }}>
-            <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Programming Languages</h3>
-            <div>{skills.languages.map((t) => <span key={t} className="badge">{t}</span>)}</div>
-          </div>
+    {/* Tools & Frameworks */}
+    <section className="liquidGlass" aria-label="Tools & Frameworks">
+      <div style={{ padding: 20 }}>
+        <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>
+          Tools & Frameworks
+        </h3>
+        <div>
+          {skills.tools.map((t) => (
+            <span key={t} className="badge">{t}</span>
+          ))}
+        </div>
+      </div>
+    </section>
 
-          <div style={{ marginBottom: "16px" }}>
-            <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Development Platforms</h3>
-            <div>{skills.platforms.map((t) => <span key={t} className="badge">{t}</span>)}</div>
-          </div>
+    {/* Programming Languages */}
+    <section className="liquidGlass" aria-label="Programming Languages">
+      <div style={{ padding: 20 }}>
+        <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>
+          Programming Languages
+        </h3>
+        <div>
+          {skills.languages.map((t) => (
+            <span key={t} className="badge">{t}</span>
+          ))}
+        </div>
+      </div>
+    </section>
 
-          <div>
-            <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Core Competencies</h3>
-            <div>{skills.coursework.concat(skills.soft).map((t) => <span key={t} className="badge">{t}</span>)}</div>
-          </div>
-        </section>
+    {/* Development Platforms */}
+    <section className="liquidGlass" aria-label="Development Platforms">
+      <div style={{ padding: 20 }}>
+        <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>
+          Development Platforms
+        </h3>
+        <div>
+          {skills.platforms.map((t) => (
+            <span key={t} className="badge">{t}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* Core Competencies */}
+    <section className="liquidGlass" aria-label="Core Competencies">
+      <div style={{ padding: 20 }}>
+        <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>
+          Core Competencies
+        </h3>
+        <div>
+          {skills.coursework.concat(skills.soft).map((t) => (
+            <span key={t} className="badge">{t}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </div>
+</section>
+
 
         {/* Experience Section */}
         <section className="card fade-in">
