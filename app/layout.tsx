@@ -1,9 +1,5 @@
 // app/layout.tsx
 import "../styles/globals.css";
-import "../styles/tokens.css"; // new
-import "../styles/glass.css";  // new
-import "../styles/card-typography.css"; // new
-
  // adjust path if needed
 import { ThemeProvider } from "next-themes";
 import type { Metadata } from "next";
