@@ -1,0 +1,110 @@
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+/* styles/glass.css */
+
+/* Base liquid glass panel with improved legibility */
+.liquidGlass {
+  /* thicker, clearer surface derived from your tokens */
+  background: color-mix(in srgb, var(--glass-bg) 92%, var(--m3-surface) 8%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+
+  border: 1.2px solid color-mix(in srgb, var(--glass-border) 70%, var(--m3-outline) 30%);
+  border-radius: var(--radius-xxl);
+
+  /* sharper edge on dark themes */
+  box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+
+=======
+.liquidGlass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturation));
+  border: 1.2px solid var(--glass-border);
+  border-radius: var(--radius-xxl);
+  box-shadow: var(--glass-shadow);
+>>>>>>> 6d472eb26c31ba18ac38b763c254bdd19053b175
+  transition: background var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  overflow: hidden;
+  position: relative;
+}
+<<<<<<< HEAD
+
+/* Subtle, constrained highlight to avoid milky haze */
+=======
+>>>>>>> 6d472eb26c31ba18ac38b763c254bdd19053b175
+.liquidGlass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+<<<<<<< HEAD
+  background:
+    radial-gradient(90% 50% at 15% 0%, rgba(255,255,255,0.06) 0%, transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.015), transparent);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  /* fade highlight downward so center stays readable */
+  mask-image: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,0.2));
+}
+
+/* Hover elevation without overwhelming glow */
+.liquidGlass:hover {
+  box-shadow: 0 14px 42px rgba(0,0,0,0.30);
+  border-color: color-mix(in srgb, var(--m3-outline) 38%, var(--glass-border) 62%);
+}
+
+/* Optional inner layer for paragraphs/lists to maximize contrast */
+.liquidGlass .glass-body {
+  background: color-mix(in srgb, var(--m3-surface) 92%, transparent 8%);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+/* Strengthen text and badge contrast on dark backgrounds */
+.liquidGlass h2, .liquidGlass h3,
+.liquidGlass p, .liquidGlass li, .liquidGlass .badge {
+  color: color-mix(in srgb, var(--text-primary) 92%, white 8%);
+}
+
+/* Badges inside glass get a lighter base and smaller blur */
+.liquidGlass .badge {
+  background: color-mix(in srgb, var(--m3-surface) 82%, transparent 18%);
+  border: 1px solid color-mix(in srgb, var(--m3-outline) 36%, transparent 64%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Respect user preference to reduce transparency */
+@media (prefers-reduced-transparency: reduce) {
+  .liquidGlass,
+  .liquidGlass .badge {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: color-mix(in srgb, var(--m3-surface) 96%, transparent 4%);
+    border-color: color-mix(in srgb, var(--m3-outline) 50%, transparent 50%);
+  }
+}
+
+/* Fallback when backdrop-filter isn't supported */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .liquidGlass,
+  .liquidGlass .badge {
+    background: color-mix(in srgb, var(--m3-surface) 92%, transparent 8%);
+=======
+  background: radial-gradient(150% 80% at 0% 0%, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.06) 35%, transparent 60%),
+              linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+.liquidGlass:hover {
+  box-shadow: 0 14px 48px rgba(0,0,0,0.16);
+  border-color: color-mix(in srgb, var(--glass-border) 80%, white 20%);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .liquidGlass {
+    background: color-mix(in srgb, var(--glass-bg) 70%, white 30%);
+>>>>>>> 6d472eb26c31ba18ac38b763c254bdd19053b175
+  }
+}
+>>>>>>> parent of 2ba9733 (fixed bug after implemnting)
