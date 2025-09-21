@@ -863,49 +863,84 @@ nav .nav-actions { display: flex; align-items: center; gap: 12px; }
     box-shadow: 0 0 0 2px var(--m3-primary);
   }
 }
-.nav-inline-group {
+/* --- DESKTOP --- */
+.nav-desk { 
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  gap: 16px;
+  min-height: 54px;
+  padding: 0 18px;
 }
-.nav-logo.nav-brand-center {
+.nav-brand { flex: 1 1 auto; display: flex; align-items: center; }
+.nav-logo {
   font-weight: bold;
-  font-size: 1.65rem;
+  font-size: 1.3rem;
   letter-spacing: 0.01em;
   text-shadow: 0 1px 8px rgba(0,0,0,0.13);
-  margin: 0 8px;
+  white-space: nowrap;
+  padding: 0;
 }
-.nav-icon-btn {
+.nav-actions { display: flex; align-items: center; gap: 16px; }
+.pill-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
   border: none;
   cursor: pointer;
-  font-size: 17px;
-  padding: 10px 18px;
-  transition: background var(--m3-fast), color var(--m3-fast);
-  background: linear-gradient(135deg, var(--m3-tertiary), color-mix(in srgb, var(--m3-tertiary) 80%, var(--m3-primary) 20%));
-  color: var(--m3-on-primary);
+  font-size: 1.02em;
+  padding: 8px 18px;
+  margin: 0 2px;
   font-weight: 600;
   min-width: 40px;
+  background: linear-gradient(135deg, var(--m3-tertiary), color-mix(in srgb, var(--m3-tertiary) 80%, var(--m3-primary) 20%));
+  color: var(--m3-on-primary);
+  transition: background var(--m3-fast), color var(--m3-fast);
 }
-.theme-toggle-btn.nav-icon-btn {
+.theme-toggle-btn.pill-btn {
   background: linear-gradient(135deg, var(--m3-primary), color-mix(in srgb, var(--m3-primary) 80%, var(--m3-tertiary) 20%));
 }
-.nav-btn-icon { display: inline-flex; font-size: 21px; }
-.nav-btn-label { display: inline; margin-left: 6px; }
+.nav-btn-label { margin-left: 8px; }
 
-/* Hide text on mobile, keep icon */
-@media (max-width: 640px) {
-  .nav-inline-group { justify-content: space-between; gap: 0px; }
-  .nav-logo.nav-brand-center { text-align: center; margin: 0 2vw; flex: 1 1 0; font-size: 1.28rem; }
-  .nav-btn-label { display: none !important; }
-  .nav-icon-btn { padding: 0 11px; min-width: 36px; height: 38px; font-size: 20px; }
+/* --- MOBILE: all in one row, branding centered, pills on edge --- */
+.nav-mobile {
+  display: none;
 }
 
+@media (max-width: 640px) {
+  .nav-desk { display: none !important; }
+  .nav-mobile {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 40px;
+    padding: 0 4px;
+    background: inherit;
+  }
+  .nav-logo-mobile-wrap {
+    flex: 1 1 0;
+    display: flex;
+    justify-content: center;
+    min-width: 0;
+    z-index: 1;
+  }
+  .nav-logo.nav-logo-mobile {
+    font-size: 1.08rem;
+    margin: 0 0 0 0;
+    padding: 0 1vw;
+    text-align: center;
+  }
+  .nav-btn-label { display: none !important; }
+  .pill-btn { 
+    padding: 0 10px; 
+    min-width: 36px;
+    height: 36px;
+    font-size: 20px;
+    margin: 0;
+  }
+}
 
 
 

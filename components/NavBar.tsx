@@ -17,98 +17,75 @@ export default function NavBar() {
     setTheme(effective === "dark" ? "light" : "dark");
   };
 
-  if (!mounted) {
-    return (
-      <nav className="liquid-glass nav-root">
-        <div className="nav-mobile-left mobile-only">
-          <a href="/resume.pdf" target="_blank" rel="noopener" className="resume-btn" aria-label="Download Resume">
-            📄
-          </a>
-        </div>
-        <div className="nav-brand">
-          <Link href="/" className="nav-logo">
-            theompant<sup>™</sup>
-          </Link>
-        </div>
-        <div className="nav-mobile-right mobile-only">
-          <button className="theme-btn" aria-label="Toggle theme">
-            <span>🌞</span>
-          </button>
-        </div>
-        <div className="nav-actions desktop-only" />
-      </nav>
-    );
-  }
-
   const effective = (theme === "system" ? systemTheme : theme) || "light";
   const themeIcon = effective === "dark" ? "🌞" : "🌙";
 
   return (
     <nav className="liquid-glass nav-root">
-      {/* MOBILE: left icon */}
-      <div className="nav-mobile-left mobile-only">
-        <a href="/resume.pdf" target="_blank" rel="noopener" className="resume-btn" aria-label="Download Resume">
-          📄
-        </a>
+      {/* Desktop: classic flex, branding left, actions right */}
+      <div className="nav-desk">
+        <div className="nav-brand">
+          <Link href="/" className="nav-logo">
+            theompant<sup>™</sup>
+          </Link>
+        </div>
+        <div className="nav-actions">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener"
+            className="resume-download-btn pill-btn"
+          >
+            <span role="img" aria-label="Download Resume">📄</span>
+            <span className="nav-btn-label">Download Resume</span>
+          </a>
+          {mounted ? (
+            <button
+              className="theme-toggle-btn pill-btn"
+              aria-label="Toggle theme"
+              onClick={onToggleTheme}
+            >
+              <span role="img" aria-label="Theme">{themeIcon}</span>
+              <span className="nav-btn-label">{effective === "dark" ? "Light" : "Dark"}</span>
+            </button>
+          ) : (
+            <span className="theme-toggle-btn pill-btn" aria-hidden="true">
+              <span role="img" aria-label="Theme">🌙</span>
+              <span className="nav-btn-label">Dark</span>
+            </span>
+          )}
+        </div>
       </div>
-      {/* Branding (always left on desktop, centered on mobile) */}
-      <div className="nav-brand">
-        <Link href="/" className="nav-logo">
-          theompant<sup>™</sup>
-        </Link>
-      </div>
-      {/* MOBILE: right icon */}
-      <div className="nav-mobile-right mobile-only">
-        <button className="theme-btn" aria-label="Toggle theme" onClick={onToggleTheme}>
-          <span>{themeIcon}</span>
-        </button>
-      </div>
-      {/* DESKTOP: actions right */}
-      <div className="nav-actions desktop-only">
+
+      {/* Mobile: pills left/right, branding perfectly centered, all on one row */}
+      <div className="nav-mobile">
         <a
           href="/resume.pdf"
           target="_blank"
           rel="noopener"
-          className="resume-download-btn"
+          className="pill-btn"
+          aria-label="Download Resume"
         >
-          📄 Download Resume
+          <span role="img" aria-label="Download Resume">📄</span>
         </a>
-        <button
-          className="theme-toggle-btn"
-          onClick={onToggleTheme}
-          style={{
-            background: "color-mix(in srgb, var(--m3-primary) 12%, transparent)",
-            border: "1px solid color-mix(in srgb, var(--m3-primary) 20%, transparent)",
-            borderRadius: "999px",
-            padding: "8px 16px",
-            cursor: "pointer",
-            fontSize: "14px",
-            fontWeight: 500,
-            display: "flex",
-            alignItems: "center",
-            gap: "6px",
-            transition: "all var(--m3-fast)",
-            color: "var(--m3-on-surface)"
-          }}
-          onMouseOver={e => {
-            e.currentTarget.style.background = "color-mix(in srgb, var(--m3-primary) 16%, transparent)";
-            e.currentTarget.style.transform = "scale(1.02)";
-          }}
-          onMouseOut={e => {
-            e.currentTarget.style.background = "color-mix(in srgb, var(--m3-primary) 12%, transparent)";
-            e.currentTarget.style.transform = "scale(1)";
-          }}
-        >
-          {effective === "dark" ? (
-            <>
-              <span>🌞</span> Light
-            </>
-          ) : (
-            <>
-              <span>🌙</span> Dark
-            </>
-          )}
-        </button>
+        <div className="nav-logo-mobile-wrap">
+          <Link href="/" className="nav-logo nav-logo-mobile">
+            theompant<sup>™</sup>
+          </Link>
+        </div>
+        {mounted ? (
+          <button
+            className="pill-btn"
+            aria-label="Toggle theme"
+            onClick={onToggleTheme}
+          >
+            <span role="img" aria-label="Theme">{themeIcon}</span>
+          </button>
+        ) : (
+          <span className="pill-btn" aria-hidden="true">
+            <span role="img" aria-label="Theme">🌙</span>
+          </span>
+        )}
       </div>
     </nav>
   );
