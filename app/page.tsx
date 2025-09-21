@@ -9,6 +9,7 @@ import education from "@/content/education.json";
 import experience from "@/content/experience.json";
 import certs from "@/content/certifications.json";
 import NavBar from "@/components/NavBar";
+import ContactForm from "@/components/ContactForm";
 import Link from "next/link";
 
 /* Extract a coarse dominant color from an image element */
@@ -171,13 +172,6 @@ export default function Home() {
           {projects.map((p, index) => (
             <div key={p.name} style={{ marginBottom: index < projects.length - 1 ? "24px" : 0 }}>
               <h3>{p.name}</h3>
-              {/* If you add dates to your project JSON, switch to meta row:
-              <p className="meta" style={{ marginBottom: "8px" }}>
-                <span>{p.summary}</span>
-                <span className="spacer" />
-                <span className="dates">📅 {p.dates}</span>
-              </p>
-              */}
               <p style={{ marginBottom: "12px" }}>{p.summary}</p>
               <div style={{ marginBottom: "12px" }}>{p.stack.map((s) => <span key={s} className="badge">{s}</span>)}</div>
               <ul>{p.highlights.map((h, i) => <li key={i}>{h}</li>)}</ul>
@@ -209,6 +203,9 @@ export default function Home() {
             <ul>{certs.map((c, i) => <li key={i} style={{ marginBottom: "8px" }}>{c}</li>)}</ul>
           </section>
         </div>
+
+        {/* Contact Form Section */}
+        <ContactForm />
 
         <footer style={{ margin: "40px 0 20px", textAlign: "center", opacity: 0.7, fontSize: "0.9rem" }}>
           {/* optional footer */}
