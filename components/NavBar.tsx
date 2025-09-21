@@ -19,11 +19,13 @@ export default function NavBar() {
 
   if (!mounted) {
     return (
-      <nav className="liquid-glass" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 24px", position: "sticky", top: 0, zIndex: 100 }}>
-        <Link href="/" className="nav-logo">
-          theompant<sup>™</sup>
-        </Link>
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+      <nav className="liquid-glass nav-root">
+        <div className="nav-brand">
+          <Link href="/" className="nav-logo">
+            theompant<sup>™</sup>
+          </Link>
+        </div>
+        <div className="nav-actions">
           <span style={{ fontSize: "14px", fontWeight: 500 }}>Theme</span>
         </div>
       </nav>
@@ -33,11 +35,13 @@ export default function NavBar() {
   const effective = (theme === "system" ? systemTheme : theme) || "light";
 
   return (
-    <nav className="liquid-glass" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 24px", position: "sticky", top: 0, zIndex: 100, transition: "all var(--m3-fast)" }}>
-      <Link href="/" className="nav-logo">
-        theompant<sup>™</sup>
-      </Link>
-      <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+    <nav className="liquid-glass nav-root">
+      <div className="nav-brand">
+        <Link href="/" className="nav-logo">
+          theompant<sup>™</sup>
+        </Link>
+      </div>
+      <div className="nav-actions">
         {/* Resume Download Button */}
         <a
           href="/resume.pdf"
@@ -49,6 +53,7 @@ export default function NavBar() {
         </a>
         {/* Theme Toggle */}
         <button
+          className="theme-toggle-btn"
           onClick={onToggleTheme}
           style={{
             background: "color-mix(in srgb, var(--m3-primary) 12%, transparent)",
