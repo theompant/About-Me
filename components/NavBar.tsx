@@ -20,29 +20,51 @@ export default function NavBar() {
   if (!mounted) {
     return (
       <nav className="liquid-glass nav-root">
+        <div className="nav-mobile-left mobile-only">
+          <a href="/resume.pdf" target="_blank" rel="noopener" className="resume-btn" aria-label="Download Resume">
+            📄
+          </a>
+        </div>
         <div className="nav-brand">
           <Link href="/" className="nav-logo">
             theompant<sup>™</sup>
           </Link>
         </div>
-        <div className="nav-actions">
-          <span style={{ fontSize: "14px", fontWeight: 500 }}>Theme</span>
+        <div className="nav-mobile-right mobile-only">
+          <button className="theme-btn" aria-label="Toggle theme">
+            <span>🌞</span>
+          </button>
         </div>
+        <div className="nav-actions desktop-only" />
       </nav>
     );
   }
 
   const effective = (theme === "system" ? systemTheme : theme) || "light";
+  const themeIcon = effective === "dark" ? "🌞" : "🌙";
 
   return (
     <nav className="liquid-glass nav-root">
+      {/* MOBILE: left icon */}
+      <div className="nav-mobile-left mobile-only">
+        <a href="/resume.pdf" target="_blank" rel="noopener" className="resume-btn" aria-label="Download Resume">
+          📄
+        </a>
+      </div>
+      {/* Branding (always left on desktop, centered on mobile) */}
       <div className="nav-brand">
         <Link href="/" className="nav-logo">
           theompant<sup>™</sup>
         </Link>
       </div>
-      <div className="nav-actions">
-        {/* Resume Download Button */}
+      {/* MOBILE: right icon */}
+      <div className="nav-mobile-right mobile-only">
+        <button className="theme-btn" aria-label="Toggle theme" onClick={onToggleTheme}>
+          <span>{themeIcon}</span>
+        </button>
+      </div>
+      {/* DESKTOP: actions right */}
+      <div className="nav-actions desktop-only">
         <a
           href="/resume.pdf"
           target="_blank"
@@ -51,7 +73,6 @@ export default function NavBar() {
         >
           📄 Download Resume
         </a>
-        {/* Theme Toggle */}
         <button
           className="theme-toggle-btn"
           onClick={onToggleTheme}

@@ -811,46 +811,58 @@ nav.liquid-glass .nav-logo {
 nav.liquid-glass.nav-root {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 0;
   padding: 12px 24px;
+  min-height: 56px;
   position: sticky;
   top: 0;
   z-index: 100;
   transition: all var(--m3-fast);
-  flex-wrap: wrap;
 }
+.nav-brand { display: flex; align-items: center; flex: 1 1 auto; }
+nav .nav-actions { display: flex; align-items: center; gap: 12px; }
+.mobile-only { display: none; }
+.desktop-only { display: flex; align-items: center; gap: 12px; }
+.nav-mobile-left, .nav-mobile-right { display: none; }
 
-.nav-brand, .nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.nav-actions { gap: 12px; }
-
+/* ---- MOBILE VIEW (icons + brand centered, left/right) ---- */
 @media (max-width: 640px) {
   nav.liquid-glass.nav-root {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
-    padding: 12px 6vw;
-    text-align: center;
-  }
-  .nav-brand {
     justify-content: center;
-    margin-bottom: 4px;
+    align-items: center;
+    padding: 8px 3vw 5px 3vw;
+    min-height: 48px;
   }
-  .nav-actions {
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-    width: 100%;
-  }
-  .resume-download-btn,
-  .theme-toggle-btn {
-    width: 100%;
+  .nav-brand { justify-content: center; flex: none; }
+  .mobile-only { display: flex !important; align-items: center !important; }
+  .desktop-only { display: none !important; }
+  .nav-mobile-left { order: 1; flex: 0 0 44px; justify-content: flex-start; }
+  .nav-brand { order: 2; min-width: 0; }
+  .nav-mobile-right { order: 3; flex: 0 0 44px; justify-content: flex-end; }
+  .resume-btn, .theme-btn {
+    width: 38px;
+    height: 38px;
     justify-content: center;
+    align-items: center;
     border-radius: 999px;
+    font-size: 22px;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    transition: background var(--m3-fast);
+  }
+  .resume-btn:active, .theme-btn:active {
+    background: color-mix(in srgb, var(--m3-primary) 14%, transparent);
+  }
+  .resume-btn:focus, .theme-btn:focus {
+    box-shadow: 0 0 0 2px var(--m3-primary);
   }
 }
+
 
 
