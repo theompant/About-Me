@@ -973,6 +973,58 @@ nav .nav-actions { display: flex; align-items: center; gap: 12px; }
 }
 
 }
+/* Make mobile branding always visible in dark mode */
+@media (max-width: 640px) {
+  :root[data-theme="dark"] .nav-logo-mobile {
+    color: #fff !important;
+    text-shadow: 0 1.5px 7px rgba(0,0,0,0.28), 0 0.5px 0 rgba(0,0,0,0.18);
+  }
+}
+@media (max-width: 640px) {
+  .nav-logo-mobile {
+    text-shadow: 0 1.5px 7px rgba(0,0,0,0.09);
+  }
+}
+@media (max-width: 700px) {
+  [data-theme="dark"] .nav-logo-mobile,
+  :root[data-theme="dark"] .nav-logo-mobile {
+    color: #fff !important;
+    text-shadow:
+      0 2px 8px rgba(0,0,0,0.39),
+      0 0 3px #000,
+      0 1px 0 #000;
+    font-weight: 700 !important;
+  }
+}
+@media (max-width: 700px) {
+  html[data-theme="dark"] .nav-logo-mobile,
+  body[data-theme="dark"] .nav-logo-mobile,
+  :root[data-theme="dark"] .nav-logo-mobile,
+  [data-theme="dark"] .nav-logo-mobile,
+  .nav-logo-mobile[data-theme="dark"] {
+    color: #fff !important;
+    /* PURE WHITE - nothing can override this */
+    text-shadow:
+      0 2px 8px rgba(0,0,0,0.55),
+      0 0 3px #000,
+      0 1px 0 #000;
+    font-weight: 800 !important;
+    opacity: 1 !important;
+    background: none !important;
+    filter: none !important;
+    mix-blend-mode: normal !important;
+  }
+}
+@media (max-width:700px) {
+  :root:not([data-theme="dark"]) .nav-logo-mobile,
+  html:not([data-theme="dark"]) .nav-logo-mobile,
+  body:not([data-theme="dark"]) .nav-logo-mobile {
+    color: var(--m3-primary) !important;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.07);
+    font-weight: 700;
+  }
+}
+
 
 
 
