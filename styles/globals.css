@@ -863,6 +863,49 @@ nav .nav-actions { display: flex; align-items: center; gap: 12px; }
     box-shadow: 0 0 0 2px var(--m3-primary);
   }
 }
+.nav-inline-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 16px;
+}
+.nav-logo.nav-brand-center {
+  font-weight: bold;
+  font-size: 1.65rem;
+  letter-spacing: 0.01em;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.13);
+  margin: 0 8px;
+}
+.nav-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  padding: 10px 18px;
+  transition: background var(--m3-fast), color var(--m3-fast);
+  background: linear-gradient(135deg, var(--m3-tertiary), color-mix(in srgb, var(--m3-tertiary) 80%, var(--m3-primary) 20%));
+  color: var(--m3-on-primary);
+  font-weight: 600;
+  min-width: 40px;
+}
+.theme-toggle-btn.nav-icon-btn {
+  background: linear-gradient(135deg, var(--m3-primary), color-mix(in srgb, var(--m3-primary) 80%, var(--m3-tertiary) 20%));
+}
+.nav-btn-icon { display: inline-flex; font-size: 21px; }
+.nav-btn-label { display: inline; margin-left: 6px; }
+
+/* Hide text on mobile, keep icon */
+@media (max-width: 640px) {
+  .nav-inline-group { justify-content: space-between; gap: 0px; }
+  .nav-logo.nav-brand-center { text-align: center; margin: 0 2vw; flex: 1 1 0; font-size: 1.28rem; }
+  .nav-btn-label { display: none !important; }
+  .nav-icon-btn { padding: 0 11px; min-width: 36px; height: 38px; font-size: 20px; }
+}
+
 
 
 
