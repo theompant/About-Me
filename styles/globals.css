@@ -985,7 +985,7 @@ nav .nav-actions { display: flex; align-items: center; gap: 12px; }
     text-shadow: 0 1.5px 7px rgba(0,0,0,0.09);
   }
 }
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
   [data-theme="dark"] .nav-logo-mobile,
   :root[data-theme="dark"] .nav-logo-mobile {
     color: #fff !important;
@@ -995,7 +995,7 @@ nav .nav-actions { display: flex; align-items: center; gap: 12px; }
       0 1px 0 #000;
     font-weight: 700 !important;
   }
-}
+} */
 @media (max-width: 700px) {
   html[data-theme="dark"] .nav-logo-mobile,
   body[data-theme="dark"] .nav-logo-mobile,
