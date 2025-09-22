@@ -6,7 +6,7 @@
     "dates": "July 2025 – Present",
     "bullets": [
       "Manual testing (SDLC/STLC), test plans, test cases, defect docs, SQL data validation.",
-      "NLP-driven FireFlink scripts; validated StarQuik E2E; robust XPath for dynamic toasts; isolated failed tests to accelerate regression.",
+      "NLP-driven FireFlink scripts; validated StarQuik E2E as Team Lead; robust XPath for dynamic toasts; isolated failed tests to accelerate regression.",
       "Led QA strategy for Goibibo as Team Lead and Scrum Master, delivering E2E testing across search, booking, checkout, payments, cancellations/refunds, and accounts; ran ceremonies, defined DoD/DoR, set up Zephyr with NLP scripts, and enforced shift-left quality.",
       "Growing advanced Selenium WebDriver automation skills."
     ]
