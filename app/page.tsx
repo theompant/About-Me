@@ -115,16 +115,17 @@ export default function Home() {
           </div>
         </header>
 
-        {/* About Section */}
+        {/* Professional Summary Section */}
         <section className="card fade-in">
           <h2>Professional Summary</h2>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.7" }}>{profile["Professional Summary"]}</p>
+          <p style={{ lineHeight: "1.7", fontSize: "1rem" }}>
+            {profile["Professional Summary"]}
+          </p>
         </section>
 
         {/* Skills Section */}
         <section className="card fade-in">
-          <h2>Skills & Technologies</h2>
-
+          <h2>Skills</h2>
           <div style={{ marginBottom: "16px" }}>
             <h3 style={{ fontSize: "1rem", marginBottom: "8px", color: "var(--m3-secondary)" }}>Tools & Frameworks</h3>
             <div>{skills.tools.map((t) => <span key={t} className="badge">{t}</span>)}</div>
