@@ -48,7 +48,7 @@ export default function Home() {
 
   useEffect(() => {
     applyTheme(seedDynamicTheme(seed));
-    try { localStorage.setItem(SEED_STORAGE_KEY, seed); } catch {}
+    try { localStorage.setItem(SEED_STORAGE_KEY, seed); } catch { }
   }, [seed]);
 
   useEffect(() => {
@@ -117,8 +117,8 @@ export default function Home() {
 
         {/* About Section */}
         <section className="card fade-in">
-          <h2>About Me</h2>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.7" }}>{profile.objective}</p>
+          <h2>Professional Summary</h2>
+          <p style={{ fontSize: "1.1rem", lineHeight: "1.7" }}>{profile["Professional Summary"]}</p>
         </section>
 
         {/* Skills Section */}
